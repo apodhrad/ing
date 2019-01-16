@@ -9,6 +9,7 @@ get_price_ing() {
   echo "$1;$PRICE;$2"
 }
 
+echo "id;price;currency"
 get_price "blackrock-world-healthscience" "USD"
 get_price "franklin-technology" "USD"
 get_price "fidelity-global-dividend" "CZK"
