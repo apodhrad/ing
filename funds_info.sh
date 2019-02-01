@@ -1,7 +1,7 @@
 #!/bin/sh
 ING_FILE="$1"
 FUNDS_FILE="$2"
-FUNDS=$(cat $FUNDS_FILE | tail -n +2 | awk -F',' '{ print $2 }' | uniq)
+FUNDS=$(cat $FUNDS_FILE | tail -n +2 | awk -F',' '{ print $2 }' | sort | uniq)
 
 print_info() {
   TOTAL_COUNT=$(cat $FUNDS_FILE | grep "$1" | awk -F',' '{ print $3 }' | paste -sd '+' - | bc)
