@@ -15,7 +15,7 @@ print_info() {
   CURRENT_PRICE=$(echo "$TOTAL_COUNT*$CURRENT_PRICE" | bc)
   CURRENT_PRICE_CZK=$CURRENT_PRICE
   CURRENCY=$(cat $FUNDS_FILE | grep "$1" | awk -F',' '{ print $6 }' | uniq)
-  if [ "$CURRENCY" == "USD" ]; then
+  if [ "$CURRENCY" = "USD" ]; then
     CURRENCY_BUY=$(cat $ING_CURRENCY_FILE | grep "USD/CZK" | awk -F',' '{ print $2 }')
     CURRENT_PRICE_CZK=$(echo "$CURRENT_PRICE*$CURRENCY_BUY" | bc)
   fi
